@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class SmallTaskInteraction : MonoBehaviour
 {
-   // Shoot ray from camera
-   //   set origin to camera 
-   // when ray hit task tell player to interact 
-   // when player interacts with task change its state
+    // Shoot ray from camera
+    //   set origin to camera 
+    // when ray hit task tell player to interact 
+    // when player interacts with task change its state
+    //   Store Objects new state 
+    //   store Objects current state
+    //   when looking at task and press e it will change 
+    //       delete old state 
+    //       instantiate new state
 
     LayerMask layerMask;
+    public GameObject hitObject;
+    public GameObject startChild;
+    public GameObject endChild;
 
     void Awake()
     {
@@ -25,11 +33,18 @@ public class SmallTaskInteraction : MonoBehaviour
 
         { 
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            Debug.Log("Press E");
+            hitObject = hit.collider.gameObject;
+            startChild = hitObject.transform.GetChild(0).gameObject;
+            endChild = hitObject.transform.GetChild(1).gameObject;
+            Debug.Log("startChild: " + startChild.name);
+            Debug.Log("endChild: " + endChild.name);
+            Debug.Log("Hit object: " + hitObject.name);
             
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("E");
+                startChild.SetActive(false);
+                endChild.SetActive(true);
             }
         }
         else
