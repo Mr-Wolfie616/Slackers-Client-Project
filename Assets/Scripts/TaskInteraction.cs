@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallTaskInteraction : MonoBehaviour
+public class TaskInteraction : MonoBehaviour
 {
     // Small Task
     // Shoot ray from camera
@@ -14,18 +15,11 @@ public class SmallTaskInteraction : MonoBehaviour
     //   when looking at task and press e it will change 
     //       delete old state 
     //       instantiate new state
-
-    // Large task
-    // Shoot ray from camera
-    //   set origin to camera 
-    // when ray hit task tell player to interact 
-    // when interacted lift task up
-    // when lifted task hits stationary task complete task
-
     LayerMask layerMask;
     private GameObject hitObject;
     private GameObject startChild;
     private GameObject endChild;
+    private float range = 2f;
 
     void Awake()
     {
@@ -37,7 +31,7 @@ public class SmallTaskInteraction : MonoBehaviour
 
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2f, layerMask = LayerMask.GetMask("Stask")))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range, layerMask = LayerMask.GetMask("Stask")))
 
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
@@ -55,11 +49,22 @@ public class SmallTaskInteraction : MonoBehaviour
                 endChild.SetActive(true);
             }
         }
+// Large task
+    // Shoot ray from camera
+    //   set origin to camera 
+    // when ray hit task tell player to interact 
+    // when interacted lift task up
+    // when lifted task hits stationary task complete task
 
-        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2f, layerMask = LayerMask.GetMask("Ltask")))
+        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range, layerMask = LayerMask.GetMask("Ltask")))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
             Debug.Log("Press E");
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("Key Pressed");
+            }
         }
 
         else
