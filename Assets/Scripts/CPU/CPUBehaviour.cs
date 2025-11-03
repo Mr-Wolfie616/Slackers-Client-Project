@@ -18,18 +18,20 @@ public class CPUBehaviour : MonoBehaviour
     void Update()
     {
         FindNewJob();
-        //Movement();
+        Movement();
     }
 
     void FindNewJob()
     {
-        Dictionary<float, CPUJobs> JobOrder = new Dictionary<float, CPUJobs>();
+        float currentJobPriority = 0;
+
         foreach (CPUJobs Job in Jobs)
         {
-            JobOrder.Add(Job.Priority, Job);
+            if (Job.Priority > currentJobPriority) {
+                currentJobPriority = Job.Priority;
+                currentJob = Job;
+            }
         }
-
-        currentJob = JobOrder.Max(x => x.Value);
     }
 
     void Movement()
