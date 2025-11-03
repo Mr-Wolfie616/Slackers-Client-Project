@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class TaskInteraction : MonoBehaviour
@@ -20,6 +21,7 @@ public class TaskInteraction : MonoBehaviour
     private GameObject startChild;
     private GameObject endChild;
     private float range = 2f;
+    public Transform parent;
 
     void Awake()
     {
@@ -64,7 +66,7 @@ public class TaskInteraction : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 hitObject = hit.collider.gameObject;
-                hitObject.transform.parent = null;
+                hitObject.transform.parent = parent;
                 Debug.Log("Key Pressed");
             }
         }
