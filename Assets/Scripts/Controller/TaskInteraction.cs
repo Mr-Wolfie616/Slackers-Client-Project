@@ -44,6 +44,7 @@ public class TaskInteraction : MonoBehaviour
             Debug.Log("startChild: " + startChild.name);
             Debug.Log("endChild: " + endChild.name);
             Debug.Log("Hit object: " + hitObject.name);
+            
 
             if (Input.GetKey(KeyCode.E))
             {
@@ -67,6 +68,7 @@ public class TaskInteraction : MonoBehaviour
             {
                 hitObject = hit.collider.gameObject;
                 hitObject.transform.parent = parent;
+                
                 Debug.Log("Key Pressed");
             }
         }
