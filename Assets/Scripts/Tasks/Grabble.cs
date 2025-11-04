@@ -55,6 +55,7 @@ public class Grabble : MonoBehaviour
     {
         this.GrabPointAnchorTransform = null;
         rb.useGravity = true;
+        CollisionTime = 20f;
     }
     private void FixedUpdate()
     {
