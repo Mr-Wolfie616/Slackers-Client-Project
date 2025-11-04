@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using OpenCover.Framework.Model;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Grabble : MonoBehaviour
@@ -9,10 +11,12 @@ public class Grabble : MonoBehaviour
     private Rigidbody rb;
     private Transform GrabPointAnchorTransform;
     private Changeable ObjectChangeable;
+    private GameObject NewParent;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
     }
     public void Grab(Transform GrabPointAnchorTransform)
     {
@@ -39,10 +43,10 @@ public class Grabble : MonoBehaviour
                 
     }
 
-    
-    
     public void ParentCollision()
     {
+        NewParent = transform.parent.gameObject;
+        NewParent.AddComponent<Changeable>();
         transform.parent.TryGetComponent(out ObjectChangeable);
         ObjectChangeable.Change();
     }
