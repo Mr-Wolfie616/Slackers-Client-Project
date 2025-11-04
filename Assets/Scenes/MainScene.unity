@@ -1063,13 +1063,13 @@ GameObject:
   - component: {fileID: 1353065022}
   - component: {fileID: 1353065021}
   - component: {fileID: 1353065020}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CPU Instance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1353065020
 MonoBehaviour:
   m_ObjectHideFlags: 0
