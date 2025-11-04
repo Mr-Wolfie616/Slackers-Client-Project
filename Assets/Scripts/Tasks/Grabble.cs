@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Grabble : MonoBehaviour
 {
     private Rigidbody rb;
     private Transform GrabPointAnchorTransform;
+    private Changeable ObjectChangeable;
 
     private void Awake()
     {
@@ -17,12 +19,22 @@ public class Grabble : MonoBehaviour
         rb.useGravity = false;
     }
 
-    public void Collide()
+    void OnCollisionStay(Collision collision)
     {
-        // if collider collides with parent object for 20 secs get component changeable and run it. 
-        //check for collison 
-        // check for components
-        // run Script on parent
+        if (rb.useGravity == false)
+        {
+            if (collision.gameObject == transform.parent?.gameObject)
+            {
+                ParentCollision();
+            }
+
+        }
+    }
+    
+    public void ParentCollision()
+    {
+        transform.parent.TryGetComponent(out ObjectChangeable);
+        ObjectChangeable.Change();
     }
 
     public void Drop()

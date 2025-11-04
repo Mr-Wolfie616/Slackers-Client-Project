@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class Changeable : MonoBehaviour
 {
-    private GameObject startChild;
-    private GameObject endChild;
+    private GameObject FirstChild;
+    private GameObject SecondChild;
+    private GameObject ThirdChild;
 
     void Awake()
     {
-        startChild = this.transform.GetChild(0).gameObject;
-        endChild = this.transform.GetChild(1).gameObject;
+        FirstChild = this.transform.GetChild(0).gameObject;
+        SecondChild = this.transform.GetChild(1).gameObject;
+        ThirdChild = this.transform.GetChild(2).gameObject;
     }
 
 
     public void Change()
     {
-        startChild.SetActive(false);
-        endChild.SetActive(true);
+        if (this.transform.childCount > 2)
+        {
+            FirstChild.SetActive(false);
+            SecondChild.SetActive(false);
+            ThirdChild.SetActive(true);
+        }
+
+        else
+        {
+            FirstChild.SetActive(false);
+            SecondChild.SetActive(true);
+        }
     }
 }
