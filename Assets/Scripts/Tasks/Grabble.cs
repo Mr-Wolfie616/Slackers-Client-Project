@@ -17,6 +17,14 @@ public class Grabble : MonoBehaviour
         rb.useGravity = false;
     }
 
+    public void Collide()
+    {
+        // if collider collides with parent object for 20 secs get component changeable and run it. 
+        //check for collison 
+        // check for components
+        // run Script on parent
+    }
+
     public void Drop()
     {
         this.GrabPointAnchorTransform = null;

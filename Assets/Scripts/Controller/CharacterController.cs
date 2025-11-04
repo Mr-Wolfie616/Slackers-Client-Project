@@ -8,21 +8,15 @@ public class Controller : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
     public float groundDrag;
-
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask Ground;
     bool grounded;
-
     public Transform orientation;
-
     float horizontalInput;
     float verticalInput;
-
     Vector3 moveDirection;
-
     Rigidbody rb;
 
     // Start is called before the first frame update
