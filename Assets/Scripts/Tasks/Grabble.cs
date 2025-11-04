@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Grabble : MonoBehaviour
 {
+    private float CollisionTime = 20f;
     private Rigidbody rb;
     private Transform GrabPointAnchorTransform;
     private Changeable ObjectChangeable;
@@ -25,11 +26,20 @@ public class Grabble : MonoBehaviour
         {
             if (collision.gameObject == transform.parent?.gameObject)
             {
-                ParentCollision();
+                CollisionTime -= Time.deltaTime;
+                Debug.Log(CollisionTime);
+                if (CollisionTime <= 0f)
+                {
+                    CollisionTime = 0f;
+                    ParentCollision();
+                    CollisionTime = 20f;
+                }
             }
-
         }
+                
     }
+
+    
     
     public void ParentCollision()
     {
