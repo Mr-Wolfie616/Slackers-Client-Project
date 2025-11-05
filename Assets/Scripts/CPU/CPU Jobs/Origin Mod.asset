@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Origin Mod
   m_EditorClassIdentifier: 
   Location: {x: 0, y: 0, z: 0}
-  JobLengthInSeconds: 0
+  JobLengthInSeconds: 2
