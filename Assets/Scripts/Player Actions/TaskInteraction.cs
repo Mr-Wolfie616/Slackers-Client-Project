@@ -19,6 +19,7 @@ public class TaskInteraction : MonoBehaviour
     //       instantiate new state
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform GrabPointAnchorTransform;
+    [SerializeField] private Transform Camera;
     private Grabble objectGrabble;
     private Changeable objectChangeable;
     private float range = 2f;
@@ -27,8 +28,7 @@ public class TaskInteraction : MonoBehaviour
     {
 
         RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range, layerMask))
+        if (Physics.Raycast(Camera.transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, range, layerMask))
         {
             if (Input.GetKey(KeyCode.E))
             {
@@ -39,7 +39,7 @@ public class TaskInteraction : MonoBehaviour
             }
         }
 
-         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range, layerMask))
+         if (Physics.Raycast(Camera.transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, range, layerMask))
         {
             if (Input.GetKey(KeyCode.E))
             {
@@ -62,7 +62,7 @@ public class TaskInteraction : MonoBehaviour
 
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            Debug.DrawRay(Camera.transform.position, Camera.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             Debug.Log("Did not Hit");
         }
 

@@ -12,7 +12,6 @@ public class Changeable : MonoBehaviour
     {
         FirstChild = this.transform.GetChild(0).gameObject;
         SecondChild = this.transform.GetChild(1).gameObject;
-        ThirdChild = this.transform.GetChild(2).gameObject;
     }
 
 
@@ -20,6 +19,7 @@ public class Changeable : MonoBehaviour
     {
         if (this.transform.childCount > 2)
         {
+            ThirdChild = this.transform.GetChild(2).gameObject;
             FirstChild.SetActive(false);
             SecondChild.SetActive(false);
             ThirdChild.SetActive(true);
