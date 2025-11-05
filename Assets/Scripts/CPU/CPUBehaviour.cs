@@ -6,31 +6,27 @@ using UnityEngine;
 
 public class CPUBehaviour : MonoBehaviour
 {
-    public List<CPUJobs> Jobs;
+    public List<CPUJobs> AllJobs;
+    
+    private List<CPUJobs> CurrentJobs;
     private CPUJobs currentJob;
     // Start is called before the first frame update
     void Start()
     {
-        
+        RestockJobs();
     }
 
     // Update is called once per frame
     void Update()
     {
-        FindNewJob();
         Movement();
     }
 
-    void FindNewJob()
+    void RestockJobs()
     {
-        float currentJobPriority = 0;
-
-        foreach (CPUJobs Job in Jobs)
+        foreach (CPUJobs Job in AllJobs)
         {
-            if (Job.Priority > currentJobPriority) {
-                currentJobPriority = Job.Priority;
-                currentJob = Job;
-            }
+            CurrentJobs.Add(Job);
         }
     }
 

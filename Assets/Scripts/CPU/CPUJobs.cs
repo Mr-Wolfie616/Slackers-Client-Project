@@ -8,5 +8,4 @@ public class CPUJobs : ScriptableObject
 {
     public Vector3 Location;
     public float JobLengthInSeconds;
-    public float Priority;
 }
