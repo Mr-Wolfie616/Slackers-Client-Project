@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bb57d9102df1b41b6030d63f330105, type: 3}
   m_Name: Desk Job 2
   m_EditorClassIdentifier: 
-  Location: {x: -5, y: 0, z: -7}
+  Location: {x: -8.5, y: 0, z: -6}
   JobLengthInSeconds: 5
