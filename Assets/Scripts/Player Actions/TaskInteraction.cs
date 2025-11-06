@@ -63,7 +63,6 @@ public class TaskInteraction : MonoBehaviour
         else
         {
             Debug.DrawRay(Camera.transform.position, Camera.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
         }
 
     }

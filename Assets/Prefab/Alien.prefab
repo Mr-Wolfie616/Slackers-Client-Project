@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 7173032255313285850}
   - component: {fileID: 3170080141073137611}
   - component: {fileID: 5945112530936572405}
+  - component: {fileID: 5250032267233185708}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -270,7 +271,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -337,3 +338,16 @@ MonoBehaviour:
     m_Bits: 1015
   GrabPointAnchorTransform: {fileID: 2217406146108334822}
   Camera: {fileID: 5529956956707022262}
+--- !u!114 &5250032267233185708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8183672830306515447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331b7deb3d8b0541940540f4f16e598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
