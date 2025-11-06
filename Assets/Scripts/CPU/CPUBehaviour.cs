@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,7 +7,7 @@ public class CPUBehaviour : MonoBehaviour
     public List<CPUJobs> AllJobs;
     public NavMeshAgent Agent;
     private List<CPUJobs> CurrentJobs;
-    private float currentJobTime = 0;
+    private float currentJobTime = 0; 
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +23,10 @@ public class CPUBehaviour : MonoBehaviour
 
     void RestockJobs()
     {
-        foreach (CPUJobs Job in AllJobs)
+        List<CPUJobs> tempList = AllJobs;
+        for (int i = 0; i < AllJobs.Count; i++)
         {
-            CurrentJobs.Add(Job);
+            CurrentJobs.Add(tempList[Random.Range(0, tempList.Count)]);
         }
     }
 
