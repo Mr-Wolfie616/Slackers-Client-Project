@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdfb29eeddecda49a9012dfc143d0fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
   groundDrag: 50
   playerHeight: 1
   Ground:
@@ -1380,7 +1380,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420284904}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d8540aa4372e4a949982c3ff8a618fd2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2118,6 +2118,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1349683213499351683, guid: 3a9006669e030ad4c9152de7b0c51205, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1764362027362198961, guid: 3a9006669e030ad4c9152de7b0c51205, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.2356172
