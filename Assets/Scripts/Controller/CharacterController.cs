@@ -50,7 +50,7 @@ public class Controller : MonoBehaviour
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 5f, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * moveSpeed * 3f, ForceMode.Force);
     }
 
     private void GroundCheck()
@@ -58,7 +58,7 @@ public class Controller : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Ground);
 
         if (grounded)
-            rb.drag = groundDrag;
+            rb.drag = (horizontalInput == 0 && verticalInput == 0) ? groundDrag * 3f : groundDrag;
         else
             rb.drag = 0f;
     }
@@ -71,6 +71,11 @@ public class Controller : MonoBehaviour
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+        }
+
+        if (grounded && horizontalInput == 0 && verticalInput == 0)
+        {
+            rb.AddForce(-flatVel * 8f, ForceMode.Force);
         }
     }
 }
