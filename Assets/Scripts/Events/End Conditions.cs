@@ -5,25 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class EndConditions : MonoBehaviour
 {
-    // create end conditions
+    //create end conditions
     //  when timer end DONE
-    //  when all three aliens die 
-    //  when manager runs out of bullets 
-    //  when all tasks are complete 
+    //  when all three aliens die
+    //  when manager runs out of bullets DONE
+    //  when all tasks are complete
+    //      Create score scripts
+    //      when score is full end
 
-    void Start()
-    {
-
-    }
-    
-    void Update()
-    {
-
-    }
-    
     public void Endgame()
     {
-        Debug.Log("HELLO");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
