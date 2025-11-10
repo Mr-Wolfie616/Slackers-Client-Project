@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
 {
     public float duration = 600;
     public TextMeshProUGUI Countdown;
+    public EndConditions Endcon;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +26,7 @@ public class Timer : MonoBehaviour
 
             if (duration <= 0f)
             {
-                Debug.Log("Game Over!!");
+                Endcon.Endgame();
             }
         }
     }

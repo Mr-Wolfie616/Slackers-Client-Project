@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94add1389397ec846aec9cd7c90aab68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 600
+  duration: 10
   Countdown: {fileID: 1246488968}
 --- !u!1 &560112439 stripped
 GameObject:
@@ -979,7 +979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 439.99994}
+  m_AnchoredPosition: {x: 0, y: 166}
   m_SizeDelta: {x: 397.7971, y: 92.2128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1246488968
