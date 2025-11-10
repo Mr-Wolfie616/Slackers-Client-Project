@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 public class EndConditions : MonoBehaviour
 {
     // create end conditions
-    //  when timer end 
-    //  when all three alians die 
+    //  when timer end DONE
+    //  when all three aliens die 
     //  when manager runs out of bullets 
     //  when all tasks are complete 
 
+    void Start()
+    {
+
+    }
+    
     void Update()
     {
 
