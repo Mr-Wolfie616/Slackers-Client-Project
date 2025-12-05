@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ManagerGun : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform Camera;
     private HealthManagement AlienScript;
+    public HealthManagement ManagerScript;
+    public EndConditions EndCon;
     private CPUBehaviour NpcScript;
 
     void FixedUpdate()
@@ -33,10 +36,15 @@ public class ManagerGun : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     Debug.DrawRay(Camera.transform.position, Camera.transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-                    Debug.Log("NOOOOOOO");
+                    ManagerScript.Damage();
                 }
             }
 
+        }
+
+        if (ManagerScript.health <= 0)
+        {
+            EndCon.Endgame();
         }
 
     }
