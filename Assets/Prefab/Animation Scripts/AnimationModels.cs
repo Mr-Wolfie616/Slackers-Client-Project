@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AnimationModels : MonoBehaviour
@@ -28,5 +29,10 @@ public class AnimationModels : MonoBehaviour
 
         int frame = Mathf.FloorToInt(Time.time * fps) % activeFrames.Length;
         rend.material.mainTexture = activeFrames[frame];
+    }
+
+    public static implicit operator AnimationModels(bool v)
+    {
+        throw new NotImplementedException();
     }
 }

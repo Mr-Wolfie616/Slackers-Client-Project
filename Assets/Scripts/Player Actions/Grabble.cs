@@ -31,6 +31,7 @@ public class Grabble : MonoBehaviour
             if (collision.gameObject == transform.parent?.gameObject)
             {
                 CollisionTime -= Time.deltaTime;
+                Debug.Log("ticking!!!");
                 Debug.Log(CollisionTime);
                 if (CollisionTime <= 0f)
                 {

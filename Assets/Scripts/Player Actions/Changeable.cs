@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Changeable : MonoBehaviour
 {
+    private AnimationModels Animate;
     private GameObject FirstChild;
     private GameObject SecondChild;
     private GameObject ThirdChild;
