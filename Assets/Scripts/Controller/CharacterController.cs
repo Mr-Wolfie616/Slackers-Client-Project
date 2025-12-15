@@ -15,7 +15,7 @@ public class Controller : NetworkBehaviour
     public LayerMask Ground;
     bool grounded;
     public Transform orientation;
-    public Camera camera;
+    public Camera _camera;
     float horizontalInput;
     float verticalInput;
     Vector3 moveDirection;
@@ -29,7 +29,7 @@ public class Controller : NetworkBehaviour
 
         if (!IsOwner)
         {
-            camera.enabled = false;
+            _camera.enabled = false;
         }
     }
 

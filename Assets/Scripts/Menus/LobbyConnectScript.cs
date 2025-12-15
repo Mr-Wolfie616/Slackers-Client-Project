@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LobbyConnectScript : MonoBehaviour
 {
@@ -13,10 +14,13 @@ public class LobbyConnectScript : MonoBehaviour
     {
         hostButton.onClick.AddListener(HostButtonOnClick);
         clientButton.onClick.AddListener(ClientButtonOnClick);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     private void HostButtonOnClick()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         NetworkManager.Singleton.StartHost();
     }
 
