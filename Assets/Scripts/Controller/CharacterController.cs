@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class Controller : NetworkBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
@@ -14,16 +15,22 @@ public class Controller : MonoBehaviour
     public LayerMask Ground;
     bool grounded;
     public Transform orientation;
+    public Camera camera;
     float horizontalInput;
     float verticalInput;
     Vector3 moveDirection;
     Rigidbody rb;
 
     // Start is called before the first frame update
-    void Start()
+    public override void OnNetworkSpawn() //THIS IS NOW THE START FUNCTION !!!
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        if (!IsOwner)
+        {
+            camera.enabled = false;
+        }
     }
 
     void FixedUpdate()
@@ -34,6 +41,11 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner)
+        {
+            return;
+        }
+
         MyInput();
         GroundCheck();
         SpeedControl();
