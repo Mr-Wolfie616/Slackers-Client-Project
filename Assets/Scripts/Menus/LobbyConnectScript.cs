@@ -18,13 +18,12 @@ public class LobbyConnectScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void HostButtonOnClick()
+    public void HostButtonOnClick()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         NetworkManager.Singleton.StartHost();
     }
 
-    private void ClientButtonOnClick()
+    public void ClientButtonOnClick()
     {
         NetworkManager.Singleton.StartClient();
     }
