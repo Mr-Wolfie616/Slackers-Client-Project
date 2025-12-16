@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class LobbyConnectScript : MonoBehaviour
 {
+    [SerializeField] private string mainScene = "MainScene";
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -15,7 +17,7 @@ public class LobbyConnectScript : MonoBehaviour
     public void HostButtonOnClick()
     {
         NetworkManager.Singleton.StartHost();
-        NetworkManager.Singleton.SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+        NetworkManager.Singleton.SceneManager.LoadScene(mainScene, LoadSceneMode.Single);
     }
 
     public void ClientButtonOnClick()
