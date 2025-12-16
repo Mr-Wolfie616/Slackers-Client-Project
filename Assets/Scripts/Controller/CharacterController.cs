@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
@@ -29,12 +30,18 @@ public class Controller : NetworkBehaviour
 
         if (!IsOwner)
         {
-            _camera.enabled = false;
+            Destroy(_camera.GetComponent<Camera>());
+            Destroy(GetComponent<Rigidbody>());
         }
     }
 
     void FixedUpdate()
     {
+        if (!IsOwner)
+        {
+            return;
+        }
+        
         MovePlayer();
     }
 
