@@ -7,20 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class LobbyConnectScript : MonoBehaviour
 {
-    [SerializeField] private Button hostButton;
-    [SerializeField] private Button clientButton;
-
     void Start()
     {
-        hostButton.onClick.AddListener(HostButtonOnClick);
-        clientButton.onClick.AddListener(ClientButtonOnClick);
-
         DontDestroyOnLoad(gameObject);
     }
 
     public void HostButtonOnClick()
     {
         NetworkManager.Singleton.StartHost();
+        NetworkManager.Singleton.SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
 
     public void ClientButtonOnClick()
