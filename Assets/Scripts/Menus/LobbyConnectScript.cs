@@ -9,11 +9,6 @@ public class LobbyConnectScript : MonoBehaviour
 {
     [SerializeField] private string mainScene = "MainScene";
 
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void HostButtonOnClick()
     {
         NetworkManager.Singleton.StartHost();
